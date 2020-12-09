@@ -13,7 +13,7 @@ import axios from 'axios';
 function App() {
     const [swData, setSwData] = useState([]);
 
-    const [ship, setShip] = useState([]);
+    const [spaceship, setSpaceship] = useState([]);
 
     //useEffect is where the axios call to SW api goes, and the swData state is set to the data it recieves 
     useEffect(()=> {
@@ -30,19 +30,15 @@ function App() {
       //this function is run everytime the button is clicked for a specific starship
     const displayShip = (ship) => {
         console.log('ship object', ship)
-        setShip(ship);
+        setSpaceship(ship);
     }
 
 
     return (
         <div>
-            <Route exact path='/' component={Home}/>
-            <Route path='/starship' component={Starship}></Route>
-
             <Route exact path='/' render={()=> (<Home swData={swData} displayShip={displayShip}/>)}></Route>
+            <Route path='/spaceship' render={()=> (<Starship ship={spaceship}/>)}></Route>
 
-            {/* <Home swData={swData} displayShip={displayShip}/> */}
-            <Starship ship={ship}/>
         </div>
     )
 }
