@@ -37,7 +37,7 @@ function App() {
     return (
         <div>
             <Route exact path='/' render={()=> (<Home swData={swData} displayShip={displayShip}/>)}></Route>
-            <Route path='/spaceship' render={()=> (<Starship ship={spaceship}/>)}></Route>
+            <Route path='/:id' render={()=> (<Starship ship={spaceship}/>)}></Route>
 
         </div>
     )
